@@ -19,9 +19,11 @@ connectDB().then(() => {
   app.use('/health', (req, res) => {
     res.send('Server is running');
   });
-  app.use('/' , (req, res) => {
-    res.send('Hello from lms server');
-  });
+
+  // app.use('/' , (req, res) => {
+  //   res.send('Hello from lms server');
+  // });
+  
   app.use('/api', LeadRouter); 
   app.use('/api', ClientRouter);
   
