@@ -16,8 +16,15 @@ connectDB().then(() => {
 
   // Import routes
   const { LeadRouter , ClientRouter  } = require('./routes');
+  app.use('/health', (req, res) => {
+    res.send('Server is running');
+  });
+  app.use('/' , (req, res) => {
+    res.send('Hello from lms server');
+  });
   app.use('/api', LeadRouter); 
   app.use('/api', ClientRouter);
+  
 
   // Start server
   app.listen(PORT, () => {
